@@ -1,57 +1,176 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>古法造宣纸 - 首页</title>
-  <style>
-    /* 添加一些适宜的CSS样式 */
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      display:center;
-      margin:50px;
-      align-items:center;
-      background-image: url('background.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+<title>古法造宣纸 - 首页</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+/* 使用视口高度作为全屏高度，确保充分的加载空间 */
+background-image: url('assets/img/background.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+.title {
+color: #985;
+font-size: 28px;
+text-align: center;
+}
+.button {
+display: inline-block;
+padding: 15px 30px;
+font-size: 18px;
+background-color: transparent;
+border: none;
+border-radius: 5px;
+margin: 10px;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+}
+.full-page {
+  width: 100%;
+  height: 100vh; /* 视口高度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#hero-section {
+  text-align: center;
+}
+#description-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-    .title {
-      color: #985;
-      font-size: 28px;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .button {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: transparent;
-      border: none;
-      border-radius: 5px;
-      margin: 500px 10px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-    
-    .button:hover {
-      transform: translateY(-5px);
-    }
-  </style>
+.show-description {
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+
+.button:hover {
+transform: translateY(-5px);
+}
+#description {
+max-width: 600px;
+margin: 20px auto;
+padding: 20px;
+font-size: 16px;
+line-height: 1.5;
+text-align: justify;
+background-color: rgba(255, 255, 255, 0.8);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+opacity: 0; /* 初始状态不可见 */
+  transform: translateX(100%); /* 初始状态从右侧偏移 */
+}
+.description-container {
+width: 800px; /* 固定宽度 */
+height: 400px; /* 固定高度 */
+background-color: transparent; /* 背景色透明 */
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 20px;
+overflow: hidden; /* 防止内容溢出 */
+  opacity: 0; /* 初始状态不可见 */
+  transform: translateX(100%); /* 初始状态从右侧偏移 */
+}
+.image-container {
+width: 50%; /* 图片区域固定占据一半宽度 */
+height: 100%; /* 高度与描述框相同 */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.image-container img {
+max-width: 100%; /* 确保图片不超过容器宽度 */
+max-height: 100%; /* 确保图片不超过容器高度 */
+object-fit: cover; /* 调整图片以填充容器 */
+}
+.text-container {
+width: 50%; /* 文字区域固定占据一半宽度 */
+height: 100%; /* 高度与描述框相同 */
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+/* 当页面滑到这里时，文字框逐渐显示 */
+.show-text {
+opacity: 1;
+}
+</style>
+
 </head>
 <body>
-    <div class="title">
-        <h1>古 法 造 宣 纸</h1>
-        <br/><br/>
-      </div>
-  <div>
-    <a href="页面1.html" class="button">过程复现</a>
-    <a href="https://cainiao246.github.io/atry/" class="button">实物展示</a>
-    <a href="页面3.html" class="button">视频欣赏</a>
+  <div class="title">
+  </br></br></br></br></br></br></br></br></br>
+  <h1>古 法 造 宣 纸</h1>
   </div>
-</body>
+  <div>
+  <a href="页面1.html" class="button">过程复现</a>
+  <a href="https://cainiao246.github.io/atry/" class="button">实物展示</a>
+  <a href="页面3.html" class="button">视频欣赏</a>
+  </div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br>
+  <div id="description-section">
+  </div>
+  
+  <div id="description" class="description-container">
+  <div class="image-container">
+    
+  <!-- 在这里放置图片 -->
+  <img src="assets\img\111.jpg" alt="描述图片内容">
+  </div>
+  <div class="text-container">
+  <!-- 原有的介绍文字放在这里 -->
+  <p>宣纸又名泾县纸，原出产于安徽省宣城泾县，以府治宣城为名，故称“宣纸”。宣纸是一种主要供中国毛笔书画以及装裱、拓片、水印等使用的高级艺术用纸张。宣纸拥有良好的润墨性、耐久性、不变形性以及抗虫性能，是中国纸的代表品种。宣纸起于唐代，历代相沿，由于宣纸有易于保存，经久不脆，不会褪色等特点，故有“纸寿千年”之誉。
+  宣纸宣纸为中国地理标志产品，保护范围是安徽省泾县。
+  </p>
+  </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+    var heroSection = document.createElement('section');
+    heroSection.id = 'hero';
+    var title = document.createElement('h1');
+    title.textContent = '古 法 造 宣 纸';
+    heroSection.appendChild(title);
+    var content = document.getElementById('content');
+    content.parentNode.insertBefore(heroSection, content);
+    });
+    
+    window.addEventListener('scroll', function() {
+  var descriptionSection = document.getElementById('description');
+  var descriptionPosition = descriptionSection.getBoundingClientRect().top;
+  var screenPosition = window.innerHeight / 2;
+
+  if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
+    descriptionSection.classList.add('show-description');
+  }
+});
+
+
+    
+    </script>
+
+  </body>
 </html>
