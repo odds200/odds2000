@@ -34,37 +34,56 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 transition: transform 0.3s ease;
 }
 .full-page {
-  width: 100%;
-  height: 100vh; /* 视口高度 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+width: 100%;
+height: 100vh; /* 视口高度 */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
 #hero-section {
-  text-align: center;
+text-align: center;
 }
 #description-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 @keyframes slideInFromRight {
+0% {
+transform: translateX(100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+
+@keyframes inkSpreadAnimation {
   0% {
-    transform: translateX(100%);
-    opacity: 0;
+  transform: scale(0);
+  opacity: 0.7;
   }
   100% {
-    transform: translateX(0);
-    opacity: 1;
+  transform: scale(2);
+  opacity: 0;
   }
 }
 
-.show-description {
-  animation: slideInFromRight 0.5s ease-out forwards;
+.ink-spread {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.7); /* 模拟墨水颜色 */
+  border-radius: 50%;
+  animation: inkSpreadAnimation 5s ease-in-out;
 }
 
 
+
+.show-description {
+animation: slideInFromRight 0.5s ease-out forwards;
+}
 .button:hover {
 transform: translateY(-5px);
 }
@@ -78,7 +97,7 @@ text-align: justify;
 background-color: rgba(255, 255, 255, 0.8);
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 opacity: 0; /* 初始状态不可见 */
-  transform: translateX(100%); /* 初始状态从右侧偏移 */
+transform: translateX(100%); /* 初始状态从右侧偏移 */
 }
 .description-container {
 width: 800px; /* 固定宽度 */
@@ -89,8 +108,8 @@ justify-content: space-between;
 align-items: center;
 margin-top: 20px;
 overflow: hidden; /* 防止内容溢出 */
-  opacity: 0; /* 初始状态不可见 */
-  transform: translateX(100%); /* 初始状态从右侧偏移 */
+opacity: 0; /* 初始状态不可见 */
+transform: translateX(100%); /* 初始状态从右侧偏移 */
 }
 .image-container {
 width: 50%; /* 图片区域固定占据一半宽度 */
@@ -117,60 +136,75 @@ justify-content: center;
 opacity: 1;
 }
 </style>
-
 </head>
 <body>
-  <div class="title">
-  </br></br></br></br></br></br></br></br></br>
-  <h1>古 法 造 宣 纸</h1>
-  </div>
-  <div>
-  <a href="页面1.html" class="button">过程复现</a>
-  <a href="https://cainiao246.github.io/atry/" class="button">实物展示</a>
-  <a href="页面3.html" class="button">视频欣赏</a>
-  </div>
+<div class="title">
+</br></br></br></br></br></br></br></br></br>
+<h1>古 法 造 宣 纸</h1>
+</div>
+<div>
+<a href="页面1.html" class="button">过程复现</a>
+<a href="https://cainiao246.github.io/atry/" class="button">实物展示</a>
+<a href="页面3.html" class="button">视频欣赏</a>
+</div>
 </br></br></br></br></br></br></br></br></br></br></br></br></br>
-  <div id="description-section">
-  </div>
-  
-  <div id="description" class="description-container">
-  <div class="image-container">
-    
-  <!-- 在这里放置图片 -->
-  <img src="assets\img\111.jpg" alt="描述图片内容">
-  </div>
-  <div class="text-container">
-  <!-- 原有的介绍文字放在这里 -->
-  <p>宣纸又名泾县纸，原出产于安徽省宣城泾县，以府治宣城为名，故称“宣纸”。宣纸是一种主要供中国毛笔书画以及装裱、拓片、水印等使用的高级艺术用纸张。宣纸拥有良好的润墨性、耐久性、不变形性以及抗虫性能，是中国纸的代表品种。宣纸起于唐代，历代相沿，由于宣纸有易于保存，经久不脆，不会褪色等特点，故有“纸寿千年”之誉。
-  宣纸宣纸为中国地理标志产品，保护范围是安徽省泾县。
-  </p>
-  </div>
-  </div>
-
-  <script>
-    window.addEventListener('load', function() {
-    var heroSection = document.createElement('section');
-    heroSection.id = 'hero';
-    var title = document.createElement('h1');
-    title.textContent = '古 法 造 宣 纸';
-    heroSection.appendChild(title);
-    var content = document.getElementById('content');
-    content.parentNode.insertBefore(heroSection, content);
-    });
-    
-    window.addEventListener('scroll', function() {
-  var descriptionSection = document.getElementById('description');
-  var descriptionPosition = descriptionSection.getBoundingClientRect().top;
-  var screenPosition = window.innerHeight / 2;
-
-  if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
-    descriptionSection.classList.add('show-description');
-  }
+<div id="description-section">
+</div>
+<div id="description" class="description-container">
+<div class="image-container">
+<!-- 在这里放置图片 -->
+<img src="xuanzhi.png" alt="描述图片内容">
+</div>
+<div class="text-container">
+<!-- 原有的介绍文字放在这里 -->
+<p>宣纸又名泾县纸，原出产于安徽省宣城泾县，以府治宣城为名，故称“宣纸”。宣纸是一种主要供中国毛笔书画以及装裱、拓片、水印等使用的高级艺术用纸张。宣纸拥有良好的润墨性、耐久性、不变形性以及抗虫性能，是中国纸的代表品种。宣纸起于唐代，历代相沿，由于宣纸有易于保存，经久不脆，不会褪色等特点，故有“纸寿千年”之誉。
+宣纸宣纸为中国地理标志产品，保护范围是安徽省泾县。
+</p>
+</div>
+</div>
+<script>
+window.addEventListener('load', function() {
+var heroSection = document.createElement('section');
+heroSection.id = 'hero';
+var title = document.createElement('h1');
+title.textContent = '古 法 造 宣 纸';
+heroSection.appendChild(title);
+var content = document.getElementById('content');
+content.parentNode.insertBefore(heroSection, content);
+});
+window.addEventListener('scroll', function() {
+var descriptionSection = document.getElementById('description');
+var descriptionPosition = descriptionSection.getBoundingClientRect().top;
+var screenPosition = window.innerHeight / 2;
+if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
+descriptionSection.classList.add('show-description');
+}
 });
 
+function createInkSpread() {
+  var bodyWidth = document.body.offsetWidth;
+  var bodyHeight = document.body.offsetHeight;
 
-    
-    </script>
+  var ink = document.createElement("div");
+  ink.className = "ink-spread";
+  ink.style.position = "absolute";
+  ink.style.left = Math.random() * bodyWidth + "px";
+  ink.style.top = Math.random() * bodyHeight + "px";
 
-  </body>
+  // 将墨水涟漪添加到body
+  document.body.appendChild(ink);
+
+  // 动画完成后移除墨水涟漪
+  ink.addEventListener("animationend", function() {
+  document.body.removeChild(this);
+  });
+}
+
+// 每隔一定时间创建一个新的墨水涟漪
+setInterval(createInkSpread, 3000);  // 每3秒创建一个涟漪
+
+
+
+</script>
+</body>
 </html>
