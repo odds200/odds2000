@@ -17,10 +17,13 @@ background-attachment: fixed;
 background-size: cover;
 }
 .title {
-color: #985;
-font-size: 28px;
-text-align: center;
+  color: #985;
+  font-size: 28px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out; /* 添加逐渐浮现的动画效果，持续2秒 */
 }
+
+
 .button {
 display: inline-block;
 padding: 15px 30px;
@@ -71,6 +74,16 @@ opacity: 1;
   }
 }
 
+
+@keyframes fadeIn {
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 1;
+  }
+}
+
 .ink-spread {
   width: 100px;
   height: 100px;
@@ -99,6 +112,46 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 opacity: 0; /* 初始状态不可见 */
 transform: translateX(100%); /* 初始状态从右侧偏移 */
 }
+
+#new-description {
+max-width: 600px;
+margin: 20px auto;
+padding: 20px;
+font-size: 16px;
+line-height: 1.5;
+text-align: justify;
+background-color: rgba(255, 255, 255, 0.8);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+opacity: 0; /* 初始状态不可见 */
+transform: translateX(100%); /* 初始状态从右侧偏移 */
+}
+
+#new2-description {
+max-width: 600px;
+margin: 20px auto;
+padding: 20px;
+font-size: 16px;
+line-height: 1.5;
+text-align: justify;
+background-color: rgba(255, 255, 255, 0.8);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+opacity: 0; /* 初始状态不可见 */
+transform: translateX(100%); /* 初始状态从右侧偏移 */
+}
+
+#new3-description {
+max-width: 600px;
+margin: 20px auto;
+padding: 20px;
+font-size: 16px;
+line-height: 1.5;
+text-align: justify;
+background-color: rgba(255, 255, 255, 0.8);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+opacity: 0; /* 初始状态不可见 */
+transform: translateX(100%); /* 初始状态从右侧偏移 */
+}
+
 .description-container {
 width: 800px; /* 固定宽度 */
 height: 400px; /* 固定高度 */
@@ -137,24 +190,31 @@ opacity: 1;
 }
 </style>
 </head>
+
 <body>
+
+  
 <div class="title">
 </br></br></br></br></br></br></br></br></br>
 <h1>古 法 造 宣 纸</h1>
 </div>
+
 <div>
 <a href="页面1.html" class="button">过程复现</a>
 <a href="https://cainiao246.github.io/atry/" class="button">实物展示</a>
 <a href="页面3.html" class="button">视频欣赏</a>
 </div>
+
 </br></br></br></br></br></br></br></br></br></br></br></br></br>
 <div id="description-section">
 </div>
+
 <div id="description" class="description-container">
 <div class="image-container">
 <!-- 在这里放置图片 -->
 <img src="xuanzhi.png" alt="描述图片内容">
 </div>
+
 <div class="text-container">
 <!-- 原有的介绍文字放在这里 -->
 <p>宣纸又名泾县纸，原出产于安徽省宣城泾县，以府治宣城为名，故称“宣纸”。宣纸是一种主要供中国毛笔书画以及装裱、拓片、水印等使用的高级艺术用纸张。宣纸拥有良好的润墨性、耐久性、不变形性以及抗虫性能，是中国纸的代表品种。宣纸起于唐代，历代相沿，由于宣纸有易于保存，经久不脆，不会褪色等特点，故有“纸寿千年”之誉。
@@ -162,6 +222,47 @@ opacity: 1;
 </p>
 </div>
 </div>
+
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br>
+<div id="new-description" class="description-container">
+  <div class="image-container">
+  <!-- 在这里放置新图片或修改原有图片 -->
+  <img src="danzhi.png" alt="新描述图片内容">
+  </div>
+  <div class="text-container">
+  <!-- 在这里放置新的介绍文字或修改原有文字 -->
+  <p>传说东汉时宣州人孔丹从蔡伦处习得造纸术。孔丹返乡，意欲为恩师画像，然而造纸材料难觅。偶遇青檀倒伏入水，树皮散成丝绺，洁白如雪。孔丹心有所感，创立檀皮纸。此后凡古法宣纸，祇用檀皮、不加稻草者，皆称作“丹纸”。</p>
+  </div>
+</div>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br>
+<div id="new2-description" class="description-container">
+  <div class="image-container">
+  <!-- 在这里放置新图片或修改原有图片 -->
+  <img src="texie1.png" alt="新描述图片内容">
+  </div>
+  <div class="text-container">
+  <!-- 在这里放置新的介绍文字或修改原有文字 -->
+  <p>宣纸可考的历史可以上溯到唐代。《新唐书》中提到宣州出产贡纸，《历代名画记》直接使用了宣纸这个名词。宋代造纸行业发达，宣州一带所制的纸张影响力日益扩大。根据故宫现存的南宋画作判断，当时已经有画院画师使用宣州纸。但是难以证明此时造纸已经使用了青檀，故而被一些学者认为尚且不能归为真正的宣纸，衹是宣州所产的优良书画纸。同时，宣州、徽州、池州等地造纸业逐渐集中到泾县。但是因为纸张交易的集散地仍然在宣州，习惯上还是统称宣纸。
+    
+  </div>
+</div>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br>
+<div id="new3-description" class="description-container">
+  <div class="image-container">
+  <!-- 在这里放置新图片或修改原有图片 -->
+  <img src="texie2.png" alt="新描述图片内容">
+  </div>
+  <div class="text-container">
+  <!-- 在这里放置新的介绍文字或修改原有文字 -->
+  <p>根据墨迹扩散性能
+    可分为熟宣、半熟宣、生宣三种。熟宣是加工时用明矾等涂过，故纸质较生宣为硬，吸水能力弱，使得使用时墨和色不会洇散开来。因此特性，使得熟宣宜于绘工笔画而非水墨写意画。其缺点是久藏会出现“漏矾”或脆裂。熟宣可再加工，珊瑚、云母笺、冷金、洒金、蜡生金花罗纹、桃红虎皮等皆为由熟宣再加工的花色纸。生宣则吸水力强。用淡墨水写时，墨水容易渗入，化开。用浓墨水写则相对容易。故创作书画时，需要掌握好墨的浓淡程度，方可得心应手。而生宣的品类则有夹贡、玉版、净皮、单宣、棉连等。半熟宣也是从生宣加工而成，吸水能力界乎前两者之间，“玉版宣”即属此一类。
+  </div>
+</div>
+
+
 <script>
 window.addEventListener('load', function() {
 var heroSection = document.createElement('section');
@@ -172,6 +273,8 @@ heroSection.appendChild(title);
 var content = document.getElementById('content');
 content.parentNode.insertBefore(heroSection, content);
 });
+
+//第一部分
 window.addEventListener('scroll', function() {
 var descriptionSection = document.getElementById('description');
 var descriptionPosition = descriptionSection.getBoundingClientRect().top;
@@ -180,6 +283,41 @@ if (descriptionPosition < screenPosition && !descriptionSection.classList.contai
 descriptionSection.classList.add('show-description');
 }
 });
+
+//第二部分
+window.addEventListener('scroll', function() {
+var descriptionSection = document.getElementById('new-description');
+var descriptionPosition = descriptionSection.getBoundingClientRect().top;
+var screenPosition = window.innerHeight / 2;
+if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
+descriptionSection.classList.add('show-description');
+}
+});
+
+//第三部分
+window.addEventListener('scroll', function() {
+var descriptionSection = document.getElementById('new2-description');
+var descriptionPosition = descriptionSection.getBoundingClientRect().top;
+var screenPosition = window.innerHeight / 2;
+if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
+descriptionSection.classList.add('show-description');
+}
+});
+
+//第四部分
+window.addEventListener('scroll', function() {
+var descriptionSection = document.getElementById('new3-description');
+var descriptionPosition = descriptionSection.getBoundingClientRect().top;
+var screenPosition = window.innerHeight / 2;
+if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
+descriptionSection.classList.add('show-description');
+}
+});
+
+
+
+
+
 
 function createInkSpread() {
   var bodyWidth = document.body.offsetWidth;
