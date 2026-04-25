@@ -1,348 +1,1977 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-<title>古法造宣纸 - 首页</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-text-align: center;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-/* 使用视口高度作为全屏高度，确保充分的加载空间 */
-background-image: url('background.jpg');
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: cover;
-}
-.title {
-  color: #985;
-  font-size: 28px;
-  text-align: center;
-  animation: fadeIn 2s ease-in-out; /* 添加逐渐浮现的动画效果，持续2秒 */
-}
-
-
-.button {
-display: inline-block;
-padding: 15px 30px;
-font-size: 18px;
-background-color: transparent;
-border: none;
-border-radius: 5px;
-margin: 10px;
-cursor: pointer;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-transition: transform 0.3s ease;
-}
-.full-page {
-width: 100%;
-height: 100vh; /* 视口高度 */
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
-#hero-section {
-text-align: center;
-}
-#description-section {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-@keyframes slideInFromRight {
-0% {
-transform: translateX(100%);
-opacity: 0;
-}
-100% {
-transform: translateX(0);
-opacity: 1;
-}
-}
-
-@keyframes inkSpreadAnimation {
-  0% {
-  transform: scale(0);
-  opacity: 0.7;
-  }
-  100% {
-  transform: scale(2);
-  opacity: 0;
-  }
-}
-
-
-@keyframes fadeIn {
-  0% {
-  opacity: 0;
-  }
-  100% {
-  opacity: 1;
-  }
-}
-
-.ink-spread {
-  width: 100px;
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.7); /* 模拟墨水颜色 */
-  border-radius: 50%;
-  animation: inkSpreadAnimation 5s ease-in-out;
-}
-
-
-
-.show-description {
-animation: slideInFromRight 0.5s ease-out forwards;
-}
-.button:hover {
-transform: translateY(-5px);
-}
-#description {
-max-width: 600px;
-margin: 20px auto;
-padding: 20px;
-font-size: 16px;
-line-height: 1.5;
-text-align: justify;
-background-color: rgba(255, 255, 255, 0.8);
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-opacity: 0; /* 初始状态不可见 */
-transform: translateX(100%); /* 初始状态从右侧偏移 */
-}
-
-#new-description {
-max-width: 600px;
-margin: 20px auto;
-padding: 20px;
-font-size: 16px;
-line-height: 1.5;
-text-align: justify;
-background-color: rgba(255, 255, 255, 0.8);
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-opacity: 0; /* 初始状态不可见 */
-transform: translateX(100%); /* 初始状态从右侧偏移 */
-}
-
-#new2-description {
-max-width: 600px;
-margin: 20px auto;
-padding: 20px;
-font-size: 16px;
-line-height: 1.5;
-text-align: justify;
-background-color: rgba(255, 255, 255, 0.8);
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-opacity: 0; /* 初始状态不可见 */
-transform: translateX(100%); /* 初始状态从右侧偏移 */
-}
-
-#new3-description {
-max-width: 600px;
-margin: 20px auto;
-padding: 20px;
-font-size: 16px;
-line-height: 1.5;
-text-align: justify;
-background-color: rgba(255, 255, 255, 0.8);
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-opacity: 0; /* 初始状态不可见 */
-transform: translateX(100%); /* 初始状态从右侧偏移 */
-}
-
-.description-container {
-width: 800px; /* 固定宽度 */
-height: 400px; /* 固定高度 */
-background-color: transparent; /* 背景色透明 */
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 20px;
-overflow: hidden; /* 防止内容溢出 */
-opacity: 0; /* 初始状态不可见 */
-transform: translateX(100%); /* 初始状态从右侧偏移 */
-}
-.image-container {
-width: 50%; /* 图片区域固定占据一半宽度 */
-height: 100%; /* 高度与描述框相同 */
-display: flex;
-justify-content: center;
-align-items: center;
-}
-.image-container img {
-max-width: 100%; /* 确保图片不超过容器宽度 */
-max-height: 100%; /* 确保图片不超过容器高度 */
-object-fit: cover; /* 调整图片以填充容器 */
-}
-.text-container {
-width: 50%; /* 文字区域固定占据一半宽度 */
-height: 100%; /* 高度与描述框相同 */
-padding: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-/* 当页面滑到这里时，文字框逐渐显示 */
-.show-text {
-opacity: 1;
-}
-</style>
-</head>
-
-<body>
-
-  
-<div class="title">
-</br></br></br></br></br></br></br></br></br>
-<h1>古 法 造 宣 纸</h1>
-</div>
-
-<div>
-<a href="https://odds200.github.io/odds200webWork/" class="button">过程复现</a>
-<a href="https://cainiao246.github.io/atry/" class="button">实物展示</a>
-<a href="https://cainiao246.github.io/antry/" class="button">视频欣赏</a>
-</div>
-
-</br></br></br></br></br></br></br>
-<div id="description-section">
-</div>
-
-<div id="description" class="description-container">
-<div class="image-container">
-<!-- 在这里放置图片 -->
-<img src="xuanzhi.png" alt="描述图片内容">
-</div>
-
-<div class="text-container">
-<!-- 原有的介绍文字放在这里 -->
-<p>宣纸又名泾县纸，原出产于安徽省宣城泾县，以府治宣城为名，故称“宣纸”。宣纸是一种主要供中国毛笔书画以及装裱、拓片、水印等使用的高级艺术用纸张。宣纸拥有良好的润墨性、耐久性、不变形性以及抗虫性能，是中国纸的代表品种。宣纸起于唐代，历代相沿，由于宣纸有易于保存，经久不脆，不会褪色等特点，故有“纸寿千年”之誉。
-宣纸宣纸为中国地理标志产品，保护范围是安徽省泾县。
-</p>
-</div>
-</div>
-
-
-</br></br></br></br></br></br></br>
-<div id="new-description" class="description-container">
-  <div class="image-container">
-  <!-- 在这里放置新图片或修改原有图片 -->
-  <img src="danzhi.png" alt="新描述图片内容">
-  </div>
-  <div class="text-container">
-  <!-- 在这里放置新的介绍文字或修改原有文字 -->
-  <p>传说东汉时宣州人孔丹从蔡伦处习得造纸术。孔丹返乡，意欲为恩师画像，然而造纸材料难觅。偶遇青檀倒伏入水，树皮散成丝绺，洁白如雪。孔丹心有所感，创立檀皮纸。此后凡古法宣纸，祇用檀皮、不加稻草者，皆称作“丹纸”。</p>
-  </div>
-</div>
-
-</br></br></br></br></br></br></br>
-<div id="new2-description" class="description-container">
-  <div class="image-container">
-  <!-- 在这里放置新图片或修改原有图片 -->
-  <img src="texie1.png" alt="新描述图片内容">
-  </div>
-  <div class="text-container">
-  <!-- 在这里放置新的介绍文字或修改原有文字 -->
-  <p>宣纸可考的历史可以上溯到唐代。《新唐书》中提到宣州出产贡纸，《历代名画记》直接使用了宣纸这个名词。宋代造纸行业发达，宣州一带所制的纸张影响力日益扩大。根据故宫现存的南宋画作判断，当时已经有画院画师使用宣州纸。但是难以证明此时造纸已经使用了青檀，故而被一些学者认为尚且不能归为真正的宣纸，衹是宣州所产的优良书画纸。同时，宣州、徽州、池州等地造纸业逐渐集中到泾县。但是因为纸张交易的集散地仍然在宣州，习惯上还是统称宣纸。
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>碎片岛屿 Attention Island</title>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     
+    html, body {
+      background: linear-gradient(135deg, #0a1a2f 0%, #1a2b40 100%);
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      color: #e0f7fa;
+    }
+    
+    canvas {
+      display: block;
+      cursor: grab;
+    }
+    
+    canvas:active {
+      cursor: grabbing;
+    }
+    
+    /* UI容器 */
+    #uiContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    #uiContainer.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* 顶部触发区域 */
+    #topTrigger {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      z-index: 99;
+      background: transparent;
+    }
+    
+    #inputArea {
+  position: relative;
+  background: rgba(20, 30, 48, 0.85);
+  border-radius: 16px;
+  padding: 10px; /* 减少内边距 */
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: 500px;
+  border: 1px solid rgba(128, 203, 196, 0.2);
+  margin: 0 auto;
+  margin-top: 20px;
+}
+    #inputArea h2 {
+      margin: 0 0 15px 0;
+      color: #80cbc4;
+      font-size: 26px;
+      text-align: center;
+      text-shadow: 0 0 15px rgba(128, 203, 196, 0.7);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  border: none;
+  border-radius: 12px;
+  padding: 10px; /* 减少内边距 */
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-size: 15px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+    #exampleText {
+      font-size: 13px;
+      color: #a0c0d0;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .btn-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    button, input[type="date"] {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #80cbc4, #4db6ac);
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    button:hover, input[type="date"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    #deleteBtn.highlight {
+      background: linear-gradient(145deg, #ef5350, #c62828);
+      color: white;
+    }
+    #detailBox {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: rgba(20, 30, 48, 0.9);
+      color: white;
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 300px;
+      font-size: 15px;
+      display: none;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(128, 203, 196, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    #detailBox strong {
+      color: #80cbc4;
+      font-size: 16px;
+    }
+    .instructions {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      text-align: center;
+      z-index: 5;
+      max-width: 650px;
+      background: rgba(10, 20, 35, 0.7);
+      padding: 10px 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+    .legend {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(20, 30, 48, 0.8);
+      padding: 15px 20px;
+      border-radius: 12px;
+      z-index: 9;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(128, 203, 196, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      color: white;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 14px;
+      color: white;
+    }
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 10px;
+      box-shadow: 0 0 8px rgba(255,255,255,0.3);
+    }
+    #debugInfo {
+      position: absolute;
+      bottom: 120px;
+      left: 20px;
+      background: rgba(10, 20, 35, 0.9);
+      color: #80cbc4;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 14px;
+      max-width: 320px;
+      z-index: 10;
+      display: none;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(128, 203, 196, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      line-height: 1.6;
+    }
+    #statsPanel {
+      position: relative;
+      margin: 20px auto;
+      background: rgba(20, 30, 48, 0.8);
+      padding: 15px 25px;
+      border-radius: 16px;
+      z-index: 9;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(128, 203, 196, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex;
+      gap: 25px;
+      color: white;
+      font-size: 14px;
+      width: 80%;
+      justify-content: center;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 18px;
+      font-weight: bold;
+      color: #80cbc4;
+      margin-top: 5px;
+    }
+    .category-filter {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .category-btn {
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: rgba(128, 203, 196, 0.2);
+      color: white;
+      border: 1px solid rgba(128, 203, 196, 0.4);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .category-btn.active {
+      background: rgba(128, 203, 196, 0.6);
+      transform: scale(1.1);
+    }
+    .zoom-controls {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .zoom-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(20, 30, 48, 0.8);
+      color: #80cbc4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      border: 1px solid rgba(128, 203, 196, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    .zoom-btn:hover {
+      transform: scale(1.1);
+      background: rgba(128, 203, 196, 0.4);
+    }
+    .zoom-btn.locked {
+      background: rgba(128, 203, 196, 0.4);
+      color: #fff;
+    }
+    
+    /* 3D模式样式 */
+    #view3dBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #80cbc4, #4db6ac);
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: none;
+      transition: all 0.3s;
+    }
+    
+    #view3dBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    
+    #threeCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 200;
+      display: none;
+      background: linear-gradient(135deg, #0a1a2f 0%, #1a2b40 100%);
+    }
+    
+    #backTo2dBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 201;
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #ef5350, #c62828);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: none;
+      transition: all 0.3s;
+    }
+    
+    #backTo2dBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    
+    .three-info {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 20px;
+      z-index: 201;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* 小结面板样式 */
+    #summaryPanel {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(20, 30, 48, 0.95);
+      padding: 30px;
+      border-radius: 20px;
+      z-index: 300;
+      width: 80%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      display: none;
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(128, 203, 196, 0.5);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      color: white;
+    }
+    
+    #summaryPanel h2 {
+      text-align: center;
+      color: #80cbc4;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 28px;
+      text-shadow: 0 0 10px rgba(128, 203, 196, 0.7);
+    }
+    
+    #summaryContent {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .summary-section {
+      background: rgba(30, 40, 58, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(128, 203, 196, 0.3);
+    }
+    
+    .summary-section h3 {
+      color: #80cbc4;
+      margin-top: 0;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .chart-container {
+      height: 200px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .chart-bar {
+      width: 50px;
+      background: linear-gradient(to top, #80cbc4, #4db6ac);
+      border-radius: 8px 8px 0 0;
+      position: relative;
+      transition: height 1s ease;
+    }
+    
+    .chart-label {
+      position: absolute;
+      bottom: -25px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #80cbc4;
+    }
+    
+    .chart-value {
+      position: absolute;
+      top: -25px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    #summaryComment {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      padding: 15px;
+      background: rgba(128, 203, 196, 0.15);
+      border-radius: 12px;
+      border-left: 4px solid #80cbc4;
+    }
+    
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .stat-card {
+      background: rgba(10, 20, 35, 0.5);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .stat-card .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #80cbc4;
+      margin: 10px 0;
+    }
+    
+    .stat-card .label {
+      font-size: 14px;
+      color: #a0c0d0;
+    }
+    
+    #closeSummary {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #80cbc4;
+      font-size: 24px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    #closeSummary:hover {
+      background: rgba(128, 203, 196, 0.2);
+      transform: rotate(90deg);
+    }
+    
+    /* 螺旋布局按钮 */
+    #spiralBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 50;
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #ce93d8, #ab47bc);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: none;
+      transition: all 0.3s;
+    }
+    
+    #spiralBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    
+    /* 高亮效果 */
+    @keyframes highlightPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(255, 255, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 0, 0); }
+    }
+    
+    .highlight-fragment {
+      animation: highlightPulse 2s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部触发区域 -->
+  <div id="topTrigger"></div>
+  
+  <!-- 缩放控制 -->
+  <div class="zoom-controls">
+    <div class="zoom-btn" id="uiLock">🔒</div>
+    <div class="zoom-btn" id="zoomInBtn">+</div>
+    <div class="zoom-btn" id="zoomOutBtn">-</div>
+    <div class="zoom-btn" id="resetViewBtn">↺</div>
   </div>
-</div>
-
-</br></br></br></br></br></br></br>
-<div id="new3-description" class="description-container">
-  <div class="image-container">
-  <!-- 在这里放置新图片或修改原有图片 -->
-  <img src="texie2.png" alt="新描述图片内容">
+  
+  <!-- 螺旋布局按钮 -->
+  <button id="spiralBtn">🌀 螺旋布局</button>
+  
+  <!-- 3D模式按钮 -->
+  <button id="view3dBtn">🌐 进入3D岛屿</button>
+  
+  <!-- UI容器 -->
+  <div id="uiContainer">
+    <div id="inputArea">
+      <h2>🌴 碎片岛屿 | 注意力追踪系统 🌴</h2>
+      <div>请输入你今天的注意力使用：</div>
+      <br>
+      <textarea id="inputText" placeholder="如：刷微博 1 小时，写代码 3 小时，看视频 2 小时"></textarea>
+      <div id="exampleText">支持格式: "刷抖音三个半小时", "工作2小时45分钟", "学习一小时二十五分", "写了两个小时四十五分钟的代码"</div>
+      
+      <div class="btn-container">
+        <button onclick="processInput()">⭐ 生成岛屿</button>
+        <button onclick="saveFragments()">💾 保存</button>
+        <button onclick="loadFragments()">📂 加载</button>
+        <button id="deleteBtn" onclick="deleteSelected()">🗑️ 删除岛屿</button>
+        <button onclick="toggleDebugInfo()">🐞 调试信息</button>
+      </div>
+      
+      <div class="btn-container">
+        <input type="date" id="datePicker" onchange="highlightDate(this.value)" />
+        <button onclick="exportToJson()">📤 导出JSON</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" onchange="handleImport(event)" />
+        <button onclick="document.getElementById('importFile').click()">📥 导入JSON</button>
+        <button id="generateSummaryBtn" onclick="generateSummary()">📊 生成小结</button>
+      </div>
+      
+      <div class="category-filter">
+        <div class="category-btn active" data-category="all">全部</div>
+        <div class="category-btn" data-category="娱乐">娱乐</div>
+        <div class="category-btn" data-category="学习">学习</div>
+        <div class="category-btn" data-category="工作">工作</div>
+        <div class="category-btn" data-category="信息">信息</div>
+        <div class="category-btn" data-category="其他">其他</div>
+      </div>
+    </div>
+    
+    <div id="statsPanel">
+      <div class="stat-item">总岛屿数 <div class="stat-value" id="totalIslands">0</div></div>
+      <div class="stat-item">总时间 <div class="stat-value" id="totalTime">0 小时</div></div>
+      <div class="stat-item">最大岛屿 <div class="stat-value" id="maxIsland">0 小时</div></div>
+    </div>
   </div>
-  <div class="text-container">
-  <!-- 在这里放置新的介绍文字或修改原有文字 -->
-  <p>根据墨迹扩散性能
-    可分为熟宣、半熟宣、生宣三种。熟宣是加工时用明矾等涂过，故纸质较生宣为硬，吸水能力弱，使得使用时墨和色不会洇散开来。因此特性，使得熟宣宜于绘工笔画而非水墨写意画。其缺点是久藏会出现“漏矾”或脆裂。熟宣可再加工，珊瑚、云母笺、冷金、洒金、蜡生金花罗纹、桃红虎皮等皆为由熟宣再加工的花色纸。生宣则吸水力强。用淡墨水写时，墨水容易渗入，化开。用浓墨水写则相对容易。故创作书画时，需要掌握好墨的浓淡程度，方可得心应手。而生宣的品类则有夹贡、玉版、净皮、单宣、棉连等。半熟宣也是从生宣加工而成，吸水能力界乎前两者之间，“玉版宣”即属此一类。
+  
+  <div class="legend">
+    <div class="legend-item"><div class="legend-color" style="background:#ffcc80"></div>娱乐</div>
+    <div class="legend-item"><div class="legend-color" style="background:#80cbc4"></div>学习</div>
+    <div class="legend-item"><div class="legend-color" style="background:#ce93d8"></div>工作</div>
+    <div class="legend-item"><div class="legend-color" style="background:#ef9a9a"></div>信息</div>
+    <div class="legend-item"><div class="legend-color" style="background:#b0bec5"></div>其他</div>
   </div>
-</div>
+  
+  <div id="detailBox"></div>
+  <canvas id="islandCanvas"></canvas>
+  
+  <div class="instructions">
 
+  </div>
+  
+  <div id="debugInfo"></div>
+  
+  <!-- 3D场景容器 -->
+  <div id="threeCanvas"></div>
+  <button id="backTo2dBtn">⬅️ 返回2D视图</button>
+  <div class="three-info">提示：鼠标拖拽可旋转视角 | 滚轮可缩放 | 分类: <span id="current3dCategory">全部</span></div>
+  
+  <!-- 小结面板 -->
+  <div id="summaryPanel">
+    <button id="closeSummary">×</button>
+    <h2 id="summaryTitle">📅 每日注意力小结</h2>
+    <div id="summaryContent"></div>
+  </div>
 
-<script>
-window.addEventListener('load', function() {
-var heroSection = document.createElement('section');
-heroSection.id = 'hero';
-var title = document.createElement('h1');
-title.textContent = '古 法 造 宣 纸';
-heroSection.appendChild(title);
-var content = document.getElementById('content');
-content.parentNode.insertBefore(heroSection, content);
-});
+  <script>
+    const canvas = document.getElementById('islandCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-//第一部分
-window.addEventListener('scroll', function() {
-var descriptionSection = document.getElementById('description');
-var descriptionPosition = descriptionSection.getBoundingClientRect().top;
-var screenPosition = window.innerHeight / 2;
-if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
-descriptionSection.classList.add('show-description');
-}
-});
+    // 虚拟画布大小
+    const virtualWidth = window.innerWidth * 2;
+    const virtualHeight = window.innerHeight * 2;
+    
+    // 视图参数
+    let viewOffsetX = virtualWidth / 4;
+    let viewOffsetY = virtualHeight / 4;
+    let scale = 1;
+    let isDragging = false;
+    let lastX = 0;
+    let lastY = 0;
+    
+    const centerX = virtualWidth / 2, centerY = virtualHeight / 2;
+    const colors = { 
+      "娱乐": "#ffcc80",
+      "学习": "#80cbc4",
+      "工作": "#ce93d8",
+      "信息": "#ef9a9a",
+      "其他": "#b0bec5"
+    };
+    
+    const fragments = [];
+    let selectedDate = getTodayDate();
+    let hoveredFragment = null, selectedFragment = null;
+    let debugInfo = [];
+    let uiLocked = false;
+    let uiTimeout = null;
+    let activeCategory = "all";
+    let lastAddedFragment = null;
+    let highlightTimeout = null;
+    let useSpiralLayout = false;
 
-//第二部分
-window.addEventListener('scroll', function() {
-var descriptionSection = document.getElementById('new-description');
-var descriptionPosition = descriptionSection.getBoundingClientRect().top;
-var screenPosition = window.innerHeight / 2;
-if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
-descriptionSection.classList.add('show-description');
-}
-});
+    // DOM元素
+    const detailBox = document.getElementById('detailBox');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const debugInfoDiv = document.getElementById('debugInfo');
+    const totalIslandsEl = document.getElementById('totalIslands');
+    const totalTimeEl = document.getElementById('totalTime');
+    const maxIslandEl = document.getElementById('maxIsland');
+    const uiContainer = document.getElementById('uiContainer');
+    const topTrigger = document.getElementById('topTrigger');
+    const uiLock = document.getElementById('uiLock');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const resetViewBtn = document.getElementById('resetViewBtn');
+    const view3dBtn = document.getElementById('view3dBtn');
+    const backTo2dBtn = document.getElementById('backTo2dBtn');
+    const threeCanvas = document.getElementById('threeCanvas');
+    const current3dCategory = document.getElementById('current3dCategory');
+    const summaryPanel = document.getElementById('summaryPanel');
+    const closeSummary = document.getElementById('closeSummary');
+    const summaryContent = document.getElementById('summaryContent');
+    const summaryTitle = document.getElementById('summaryTitle');
+    const spiralBtn = document.getElementById('spiralBtn');
 
-//第三部分
-window.addEventListener('scroll', function() {
-var descriptionSection = document.getElementById('new2-description');
-var descriptionPosition = descriptionSection.getBoundingClientRect().top;
-var screenPosition = window.innerHeight / 2;
-if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
-descriptionSection.classList.add('show-description');
-}
-});
+    // Three.js变量
+    let scene, camera, renderer, controls;
+    let islandMeshes = [];
+    let is3dMode = false;
 
-//第四部分
-window.addEventListener('scroll', function() {
-var descriptionSection = document.getElementById('new3-description');
-var descriptionPosition = descriptionSection.getBoundingClientRect().top;
-var screenPosition = window.innerHeight / 2;
-if (descriptionPosition < screenPosition && !descriptionSection.classList.contains('show-description')) {
-descriptionSection.classList.add('show-description');
-}
-});
+    class Fragment {
+      constructor(label, duration, x, y, tx, ty, color, category, date=getTodayDate()) {
+        this.label = label; 
+        this.duration = duration; 
+        this.x = x; 
+        this.y = y;
+        this.tx = tx; 
+        this.ty = ty; 
+        this.rotation = Math.random()*2*Math.PI;
+        this.opacity = 0; 
+        this.color = color;
+        this.radius = Math.sqrt(duration * 350);
+        this.points = this.generateBlobPoints();
+        this.floatOffset = Math.random()*2*Math.PI;
+        this.vx = 0; 
+        this.vy = 0; 
+        this.arrived = false;
+        this.category = category; 
+        this.date = date;
+        this.isToday = date === selectedDate;
+        this.pulsePhase = Math.random() * Math.PI * 2;
+        this.pulseSpeed = 0.02;
+        this.id = Math.random().toString(36).substr(2, 9);
+        this.isNew = false;
+        this.addedTime = Date.now();
+      }
+      
+      generateBlobPoints() {
+        const pts = []; 
+        const numPoints = 16;
+        
+        for(let i = 0; i < numPoints; i++) {
+          const angle = i/numPoints * 2 * Math.PI;
+          const variation = 0.3;
+          const r = this.radius * (1 + (Math.random() - 0.5) * variation);
+          pts.push({x: Math.cos(angle)*r, y: Math.sin(angle)*r});
+        } 
+        return pts;
+      }
+      
+      update() {
+        const dx = this.tx - this.x, dy = this.ty - this.y;
+        const dist = Math.hypot(dx, dy);
+        
+        if(!this.arrived && dist < 0.5) {
+          this.arrived = true; 
+          this.vx = this.vy = 0;
+        }
+        
+        if(!this.arrived) {
+          const ease = Math.min(0.01, 0.4/(dist+0.1)); 
+          this.vx += dx * ease; 
+          this.vy += dy * ease;
+        }
+        
+        fragments.forEach(other => {
+          if(other !== this) {
+            const ox = this.x - other.x, oy = this.y - other.y;
+            const d = Math.hypot(ox, oy);
+            const minDist = this.radius + other.radius + 20;
+            
+            if(d < minDist) {
+              const repulsion = (minDist - d) * 0.03;
+              this.vx += (ox / d) * repulsion;
+              this.vy += (oy / d) * repulsion;
+            }
+          }
+        });
+        
+        this.vx *= 0.88; 
+        this.vy *= 0.88; 
+        this.x += this.vx; 
+        this.y += this.vy;
+        
+        this.floatOffset += 0.02; 
+        this.fx = Math.cos(this.floatOffset) * 5;
+        this.fy = Math.sin(this.floatOffset*1.2) * 4;
+        
+        this.opacity += (1 - this.opacity) * 0.08;
+        
+        // 呼吸灯效果
+        this.pulsePhase += this.pulseSpeed;
+        
+        // 检查高亮状态
+        if (this.isNew && (Date.now() - this.addedTime > 5000)) {
+          this.isNew = false;
+        }
+      }
+      
+      draw(ctx, offsetX, offsetY, scale) {
+        if (activeCategory !== "all" && this.category !== activeCategory) return;
+        
+        const x = (this.x + this.fx - offsetX) * scale;
+        const y = (this.y + this.fy - offsetY) * scale;
+        const radius = this.radius * scale;
+        
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(this.rotation);
+        ctx.globalAlpha = this.opacity;
+        
+        const isHovered = this === hoveredFragment;
+        const s = isHovered ? 1.25 : 1.0;
+        ctx.scale(s, s);
+        
+        // 呼吸灯效果
+        const pulseIntensity = 0.2 * Math.sin(this.pulsePhase) + 0.8;
+        const r = parseInt(this.color.slice(1, 3), 16);
+        const g = parseInt(this.color.slice(3, 5), 16);
+        const b = parseInt(this.color.slice(5, 7), 16);
+        
+        // 岛屿主体
+        ctx.fillStyle = this.isToday 
+          ? `rgba(${r}, ${g}, ${b}, ${pulseIntensity})`
+          : this.color;
+        
+        ctx.beginPath();
+        const start = this.points[0]; 
+        ctx.moveTo(start.x * scale, start.y * scale);
+        
+        for(let i = 1; i < this.points.length; i++) {
+          ctx.lineTo(this.points[i].x * scale, this.points[i].y * scale);
+        }
+        
+        ctx.closePath(); 
+        ctx.fill();
+        
+        // 岛屿边框
+        const lineWidth = (this === selectedFragment) ? 4 : (this.isToday ? 4 : 2);
+        ctx.lineWidth = lineWidth * scale;
+        
+        // 高亮新添加的岛屿
+        if (this.isNew) {
+          ctx.strokeStyle = 'rgba(255, 255, 0, 0.8)';
+        } else {
+          ctx.strokeStyle = (this === selectedFragment) ? 'white' : 
+                            (this.isToday ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)');
+        }
+        
+        ctx.stroke();
+        
+        ctx.restore();
+      }
+      
+      isPointInside(mx, my, offsetX, offsetY, scale) {
+        const x = (this.x - offsetX) * scale;
+        const y = (this.y - offsetY) * scale;
+        const dx = mx - x, dy = my - y;
+        return dx*dx + dy*dy <= (this.radius * scale) * (this.radius * scale);
+      }
+      
+      showDetails() {
+        let durationText = '';
+        if (this.duration >= 1) {
+          const hours = Math.floor(this.duration);
+          const minutes = Math.round((this.duration - hours) * 60);
+          durationText = `${hours}小时`;
+          if (minutes > 0) durationText += `${minutes}分钟`;
+        } else {
+          durationText = `${Math.round(this.duration * 60)}分钟`;
+        }
+        
+        detailBox.innerHTML = `
+          <strong>${this.label}</strong><br/>
+          分类：${this.category}<br/>
+          时长：${durationText}<br/>
+          日期：${this.date}
+        `;
+        detailBox.style.display = 'block';
+      }
+      
+      // 创建3D岛屿表示 - 优化为有皱褶的倒圆锥
+      create3dMesh() {
+        // 岛屿尺寸计算
+        const islandScale = this.radius / 40;
+        const islandHeight = islandScale * 1.5;
+        const baseRadius = islandScale;
+        
+        // 创建倒圆锥（顶部小，底部大）
+        const segments = 10;
+        const islandGeometry = new THREE.ConeGeometry(
+          baseRadius * 0.3, // 顶部半径（小）
+          baseRadius,        // 底部半径（大）
+          segments,          // 径向分段数
+          1,                 // 高度分段数
+          false              // 是否开放末端
+        );
+        
+        // 旋转180度使圆锥倒置
+        islandGeometry.rotateX(Math.PI);
+        
+        // 添加皱褶效果 - 随机化顶点位置
+        const positionAttribute = islandGeometry.getAttribute('position');
+        for (let i = 0; i < positionAttribute.count; i++) {
+          const x = positionAttribute.getX(i);
+          const y = positionAttribute.getY(i);
+          const z = positionAttribute.getZ(i);
+          
+          // 只在侧面添加皱褶（排除顶部和底部的点）
+          if (y < islandHeight/2 - 0.1 && y > -islandHeight/2 + 0.1) {
+            const variation = 0.2;
+            positionAttribute.setX(i, x + (Math.random() - 0.5) * variation);
+            positionAttribute.setY(i, y + (Math.random() - 0.5) * variation * 0.5);
+            positionAttribute.setZ(i, z + (Math.random() - 0.5) * variation);
+          }
+        }
+        positionAttribute.needsUpdate = true;
+        islandGeometry.computeVertexNormals();
+        
+        // 创建材质
+        const islandMaterial = new THREE.MeshPhongMaterial({
+          color: this.color,
+          emissive: this.isToday ? this.color : "#000000",
+          emissiveIntensity: this.isToday ? 0.3 : 0,
+          shininess: 30,
+          transparent: true,
+          opacity: 0.95
+        });
+        
+        const islandMesh = new THREE.Mesh(islandGeometry, islandMaterial);
+        
+        // 添加一些额外的岩石细节
+        for (let i = 0; i < 3; i++) {
+          const rockSize = baseRadius * (0.1 + Math.random() * 0.08);
+          const rockGeometry = new THREE.DodecahedronGeometry(rockSize, 0);
+          
+          // 随机化岩石形状
+          const rockPosition = rockGeometry.getAttribute('position');
+          for (let j = 0; j < rockPosition.count; j++) {
+            rockPosition.setX(j, rockPosition.getX(j) * (0.8 + Math.random() * 0.4));
+            rockPosition.setY(j, rockPosition.getY(j) * (0.8 + Math.random() * 0.4));
+            rockPosition.setZ(j, rockPosition.getZ(j) * (0.8 + Math.random() * 0.4));
+          }
+          rockPosition.needsUpdate = true;
+          
+          const rockMaterial = new THREE.MeshPhongMaterial({
+            color: this.color,
+            shininess: 20
+          });
+          
+          const rockMesh = new THREE.Mesh(rockGeometry, rockMaterial);
+          
+          // 随机放置岩石在岛屿侧面
+          const angle = Math.random() * Math.PI * 2;
+          const distance = baseRadius * (0.6 + Math.random() * 0.3);
+          rockMesh.position.set(
+            Math.cos(angle) * distance,
+            (Math.random() - 0.5) * islandHeight * 0.5,
+            Math.sin(angle) * distance
+          );
+          
+          rockMesh.rotation.set(
+            Math.random() * 0.5,
+            Math.random() * Math.PI * 2,
+            Math.random() * 0.5
+          );
+          
+          islandMesh.add(rockMesh);
+        }
+        
+        // 位置设置（三维空间分布）
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 15 + Math.random() * 10;
+        const height = -5 + Math.random() * 10;
+        
+        islandMesh.position.set(
+          Math.cos(angle) * distance,
+          height,
+          Math.sin(angle) * distance
+        );
+        
+        // 随机旋转
+        islandMesh.rotation.x = Math.random() * 0.1;
+        islandMesh.rotation.y = Math.random() * Math.PI * 2;
+        islandMesh.rotation.z = Math.random() * 0.1;
+        
+        // 存储额外信息
+        islandMesh.userData = {
+          fragment: this,
+          id: this.id
+        };
+        
+        return islandMesh;
+      }
+    }
 
+    function getTodayDate() {
+      return new Date().toISOString().split('T')[0];
+    }
 
+    function chineseToNumber(chineseStr) {
+      const numMap = {
+        "零":0, "一":1, "二":2, "三":3, "四":4, "五":5, 
+        "六":6, "七":7, "八":8, "九":9, "十":10, 
+        "两":2, "半":0.5, "整":1, "个":1,
+        "廿":20, "卅":30, "卌":40
+      };
+      
+      // 特殊时间表达
+      if (chineseStr.includes('一刻')) return 0.25;
+      if (chineseStr.includes('三刻')) return 0.75;
+      if (chineseStr.includes('半') && chineseStr.length <= 2) return 0.5;
+      
+      // 尝试匹配复合数字（如"二十五"）
+      if (/[一二三四五六七八九十两][十百千]?[一二三四五六七八九]?/.test(chineseStr)) {
+        let total = 0;
+        let current = 0;
+        
+        for (let i = 0; i < chineseStr.length; i++) {
+          const char = chineseStr[i];
+          if (numMap[char] !== undefined) {
+            if (char === '十' || char === '百' || char === '千') {
+              if (current === 0) current = 1;
+              total += current * numMap[char];
+              current = 0;
+            } else {
+              current = numMap[char];
+            }
+          }
+        }
+        
+        total += current;
+        return total;
+      }
+      
+      // 尝试解析纯数字
+      const numMatch = chineseStr.match(/\d+(\.\d+)?/);
+      if (numMatch) {
+        return parseFloat(numMatch[0]);
+      }
+      
+      // 默认值
+      return numMap[chineseStr] || 0;
+    }
 
+    function extractDuration(text) {
+      debugInfo = [`原始文本: "${text}"`];
+      let totalHours = 0;
+      
+      // 1. 尝试匹配组合格式 (小时 + 分钟)
+      const combinedPattern = /(\d+|[零一二三四五六七八九十两半整廿卅卌]+)\s*(?:小时|时|h|个钟|个)?\s*(\d+|[零一二三四五六七八九十两半整廿卅卌]+)\s*(?:分钟|分|m)/i;
+      const combinedMatch = text.match(combinedPattern);
+      
+      if (combinedMatch) {
+        debugInfo.push(`匹配到组合格式: 小时部分=${combinedMatch[1]}, 分钟部分=${combinedMatch[2]}`);
+        
+        const hours = chineseToNumber(combinedMatch[1]);
+        const minutes = chineseToNumber(combinedMatch[2]);
+        
+        totalHours = hours + (minutes / 60);
+        debugInfo.push(`组合格式解析结果: ${hours}小时 + ${minutes}分钟 = ${totalHours}小时`);
+        return totalHours;
+      }
+      
+      // 2. 尝试匹配"X个半小时"格式
+      const halfHourPattern = /(\d+|[零一二三四五六七八九十两]+)\s*个\s*半\s*(?:小时|时)/i;
+      const halfHourMatch = text.match(halfHourPattern);
+      
+      if (halfHourMatch) {
+        debugInfo.push(`匹配到"X个半小时"格式: ${halfHourMatch[1]}`);
+        const num = chineseToNumber(halfHourMatch[1]);
+        return num * 0.5;
+      }
+      
+      // 3. 尝试匹配纯小时格式
+      const hourPattern = /(\d+|[零一二三四五六七八九十两半整廿卅卌]+)\s*(?:小时|时|h|个钟|个)/i;
+      const hourMatch = text.match(hourPattern);
+      
+      if (hourMatch) {
+        const hours = chineseToNumber(hourMatch[1]);
+        debugInfo.push(`匹配到小时部分: ${hourMatch[1]} = ${hours}小时`);
+        totalHours += hours;
+      }
+      
+      // 4. 尝试匹配纯分钟格式
+      const minutePattern = /(\d+|[零一二三四五六七八九十两半整廿卅卌]+)\s*(?:分钟|分|m)/i;
+      const minuteMatch = text.match(minutePattern);
+      
+      if (minuteMatch) {
+        const minutes = chineseToNumber(minuteMatch[1]);
+        debugInfo.push(`匹配到分钟部分: ${minuteMatch[1]} = ${minutes}分钟`);
+        totalHours += minutes / 60;
+      }
+      
+      // 5. 尝试匹配数字格式 (如 1.5, 2.25)
+      if (totalHours === 0) {
+        const numMatch = text.match(/\d+(\.\d+)?/);
+        if (numMatch) {
+          debugInfo.push(`匹配到纯数字: ${numMatch[0]}`);
+          return parseFloat(numMatch[0]);
+        }
+        
+        // 6. 尝试匹配无单位数字 (如 "两小时四十五分")
+        const implicitPattern = /([零一二三四五六七八九十两半整廿卅卌]+)小时([零一二三四五六七八九十两半整廿卅卌]+)分/;
+        const implicitMatch = text.match(implicitPattern);
+        
+        if (implicitMatch) {
+          const hours = chineseToNumber(implicitMatch[1]);
+          const minutes = chineseToNumber(implicitMatch[2]);
+          totalHours = hours + (minutes / 60);
+          debugInfo.push(`匹配到隐式格式: ${implicitMatch[1]}小时${implicitMatch[2]}分 = ${totalHours}小时`);
+          return totalHours;
+        }
+        
+        debugInfo.push(`未匹配到时间信息，使用默认值1小时`);
+        return 1;
+      }
+      
+      debugInfo.push(`最终解析结果: ${totalHours}小时`);
+      return totalHours;
+    }
 
+    // 改进的分类函数 - 扩展关键词库
+    function classifyLabel(txt) {
+      // 娱乐类别 - 扩展游戏相关关键词
+      if (/微博|抖音|视频|综艺|电影|追剧|看直播|玩游戏|游戏|电竞|直播|追番|动漫|电视剧|娱乐|放松|休闲|音乐|小说|手游|端游|主机游戏|单机游戏|网游|电竞比赛|电子竞技|手游/i.test(txt)) 
+        return "娱乐";
+      
+      // 学习类别 - 扩展讲座、答辩等关键词
+      if (/写作业|学习|读书|论文|课程|阅读|复习|预习|考试|教育|培训|讲座|答辩|听讲座|研讨会|网课|慕课|公开课|自学|研究|课题|学术|文献|教材|预习|复习|考试|测验|考核|课堂|上课|学习小组|自习|课外学习|课外阅读|课外活动|兴趣学习/i.test(txt)) 
+        return "学习";
+      
+      // 工作类别 - 扩展志愿活动等关键词
+      if (/工作|剪辑|代码|编程|开发|设计|会议|项目|任务|策划|办公|事业|志愿|志愿者|义工|志愿服务|志愿活动|公益|社会工作|社区服务|志愿项目|志愿工作|志愿组织|志愿团队|志愿计划|志愿项目|志愿管理|志愿招募|志愿培训|志愿评估|志愿记录|志愿总结|志愿报告|志愿证明|志愿证书|志愿奖励|志愿表彰|志愿荣誉|志愿经验|志愿心得|志愿体会|志愿感想|志愿反思|志愿收获|志愿成长|志愿价值|志愿意义|志愿影响|志愿效果|志愿成果|志愿效益|志愿收益|志愿回报|志愿报酬|志愿补贴|志愿津贴|志愿补助|志愿资助|志愿支持|志愿资源|志愿平台|志愿机会|志愿需求|志愿匹配|志愿推荐|志愿分享|志愿交流|志愿合作|志愿网络|志愿社区|志愿平台|志愿网站|志愿APP|志愿工具|志愿方法|志愿技巧|志愿技能|志愿能力|志愿素质|志愿态度|志愿精神|志愿文化|志愿理念|志愿原则|志愿标准|志愿规范|志愿管理|志愿组织|志愿团队|志愿领导|志愿协调|志愿沟通|志愿合作|志愿创新|志愿发展|志愿未来/i.test(txt)) 
+        return "工作";
+      
+      // 信息类别
+      if (/知乎|浏览|资讯|搜索|新闻|了解|信息|阅读|公众号|文章|知识|查阅|浏览网页|上网冲浪|刷新闻|看资讯|信息收集|信息整理|信息分析|信息处理|信息管理|信息利用|信息分享|信息传播|信息交流|信息获取|信息筛选|信息评价|信息应用|信息创新|信息创造|信息生产|信息消费|信息素养|信息能力|信息意识|信息道德|信息法律|信息安全|信息隐私|信息保护|信息权利|信息义务|信息责任|信息价值|信息意义|信息影响|信息效果|信息成果|信息效益|信息收益|信息回报|信息报酬|信息补贴|信息津贴|信息补助|信息资助|信息支持|信息资源|信息平台|信息机会|信息需求|信息匹配|信息推荐|信息分享|信息交流|信息合作|信息网络|信息社区|信息平台|信息网站|信息APP|信息工具|信息方法|信息技巧|信息技能|信息能力|信息素质|信息态度|信息精神|信息文化|信息理念|信息原则|信息标准|信息规范|信息管理|信息组织|信息团队|信息领导|信息协调|信息沟通|信息合作|信息创新|信息发展|信息未来/i.test(txt)) 
+        return "信息";
+      
+      return "其他";
+    }
 
+    function getClusterTarget(category, date) {
+      const today = new Date();
+      const fragmentDate = new Date(date);
+      const diffTime = Math.abs(today - fragmentDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      // 根据天数决定距离中心的位置（天数越新，距离越远）
+      const baseDistance = 200;
+      const distance = baseDistance + (diffDays * 50);
+      
+      const angle = Math.random() * 2 * Math.PI;
+      return { 
+        x: centerX + Math.cos(angle) * distance, 
+        y: centerY + Math.sin(angle) * distance 
+      };
+    }
 
-function createInkSpread() {
-  var bodyWidth = document.body.offsetWidth;
-  var bodyHeight = document.body.offsetHeight;
+    function processInput() {
+      const input = document.getElementById('inputText').value;
+      if (!input.trim()) return;
+      
+      const items = input.split(/[，,。\.\n]/).filter(s => s.trim());
+      const date = getTodayDate();
+      
+      // 清除之前的高亮
+      if (lastAddedFragment) {
+        lastAddedFragment.isNew = false;
+      }
+      
+      items.forEach(item => {
+        const label = item.trim();
+        if (!label) return;
+        
+        const duration = extractDuration(label);
+        const category = classifyLabel(label);
+        const target = getClusterTarget(category, date);
+        
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = virtualWidth * 0.7;
+        const sx = centerX + Math.cos(angle) * distance;
+        const sy = centerY + Math.sin(angle) * distance;
+        
+        const fragment = new Fragment(
+          label, 
+          duration, 
+          sx, 
+          sy, 
+          target.x, 
+          target.y, 
+          colors[category], 
+          category, 
+          date
+        );
+        
+        fragment.isNew = true;
+        lastAddedFragment = fragment;
+        
+        fragments.push(fragment);
+      });
+      
+      // 设置高亮超时
+      if (highlightTimeout) {
+        clearTimeout(highlightTimeout);
+      }
+      highlightTimeout = setTimeout(() => {
+        if (lastAddedFragment) {
+          lastAddedFragment.isNew = false;
+          lastAddedFragment = null;
+        }
+      }, 5000);
+      
+      // 更新统计数据
+      updateStats();
+      // 显示调试信息
+      updateDebugInfo();
+      
+      saveFragments();
+    }
 
-  var ink = document.createElement("div");
-  ink.className = "ink-spread";
-  ink.style.position = "absolute";
-  ink.style.left = Math.random() * bodyWidth + "px";
-  ink.style.top = Math.random() * bodyHeight + "px";
+    function animate() {
+      if (is3dMode) return;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // 绘制背景效果
+      drawBackground();
+      
+      hoveredFragment = null;
+      
+      // 更新和绘制所有岛屿
+      fragments.forEach(f => f.update());
+      fragments.forEach(f => f.draw(ctx, viewOffsetX, viewOffsetY, scale));
+      
+      requestAnimationFrame(animate);
+    }
+    
+    function drawBackground() {
+      // 渐变背景
+      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      gradient.addColorStop(0, '#0a1a2f');
+      gradient.addColorStop(1, '#1a2b40');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // 绘制星星
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+      for (let i = 0; i < 300; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const r = Math.random() * 2;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // 绘制中心光晕
+      const centerXOnCanvas = (centerX - viewOffsetX) * scale;
+      const centerYOnCanvas = (centerY - viewOffsetY) * scale;
+      
+      const centerGlow = ctx.createRadialGradient(
+        centerXOnCanvas, centerYOnCanvas, 0,
+        centerXOnCanvas, centerYOnCanvas, 600 * scale
+      );
+      centerGlow.addColorStop(0, 'rgba(128, 203, 196, 0.15)');
+      centerGlow.addColorStop(1, 'rgba(128, 203, 196, 0)');
+      
+      ctx.fillStyle = centerGlow;
+      ctx.beginPath();
+      ctx.arc(centerXOnCanvas, centerYOnCanvas, 600 * scale, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
-  // 将墨水涟漪添加到body
-  document.body.appendChild(ink);
+    function saveFragments() {
+      localStorage.setItem('attentionIslands', JSON.stringify(fragments));
+    }
 
-  // 动画完成后移除墨水涟漪
-  ink.addEventListener("animationend", function() {
-  document.body.removeChild(this);
-  });
-}
+    function loadFragments() {
+      const data = JSON.parse(localStorage.getItem('attentionIslands') || '[]');
+      data.forEach(d => {
+        const fragment = new Fragment(
+          d.label,
+          d.duration,
+          d.x,
+          d.y,
+          d.tx,
+          d.ty,
+          d.color,
+          d.category,
+          d.date
+        );
+        
+        // 更新目标位置（按日期分层）
+        fragment.tx = getClusterTarget(d.category, d.date).x;
+        fragment.ty = getClusterTarget(d.category, d.date).y;
+        
+        fragments.push(fragment);
+      });
+      
+      updateStats();
+    }
 
-// 每隔一定时间创建一个新的墨水涟漪
-setInterval(createInkSpread, 3000);  // 每3秒创建一个涟漪
+    function highlightDate(date) {
+      selectedDate = date;
+      fragments.forEach(f => f.isToday = (f.date === date));
+    }
 
+    function deleteSelected() {
+      if (selectedFragment) {
+        const index = fragments.indexOf(selectedFragment);
+        if (index !== -1) {
+          fragments.splice(index, 1);
+          selectedFragment = null;
+          detailBox.style.display = 'none';
+          deleteBtn.classList.remove('highlight');
+          saveFragments();
+          updateStats();
+        }
+      }
+    }
 
+    function exportToJson() {
+      const blob = new Blob([JSON.stringify(fragments, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `attention_islands_${getTodayDate()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
 
-</script>
+    function handleImport(e) {
+      const file = e.target.files[0]; 
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          data.forEach(d => {
+            const fragment = new Fragment(
+              d.label,
+              d.duration,
+              d.x,
+              d.y,
+              d.tx,
+              d.ty,
+              d.color,
+              d.category,
+              d.date
+            );
+            
+            // 更新目标位置（按日期分层）
+            fragment.tx = getClusterTarget(d.category, d.date).x;
+            fragment.ty = getClusterTarget(d.category, d.date).y;
+            
+            fragments.push(fragment);
+          });
+          saveFragments();
+          updateStats();
+        } catch (err) {
+          alert('导入失败，请检查 JSON 格式');
+          console.error(err);
+        }
+      };
+      reader.readAsText(file);
+    }
+    
+    function updateDebugInfo() {
+      debugInfoDiv.innerHTML = debugInfo.join('<br>');
+    }
+    
+    function toggleDebugInfo() {
+      debugInfoDiv.style.display = debugInfoDiv.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    function updateStats() {
+      totalIslandsEl.textContent = fragments.length;
+      
+      const totalTime = fragments.reduce((sum, frag) => sum + frag.duration, 0);
+      totalTimeEl.textContent = totalTime.toFixed(2) + ' 小时';
+      
+      const maxDuration = fragments.length > 0 ? 
+        Math.max(...fragments.map(f => f.duration)) : 0;
+      maxIslandEl.textContent = maxDuration.toFixed(2) + ' 小时';
+    }
+    
+    function showUI() {
+      uiContainer.classList.add('visible');
+      clearTimeout(uiTimeout);
+      
+      if (!uiLocked) {
+        uiTimeout = setTimeout(() => {
+          if (!uiLocked && !uiContainer.matches(':hover')) {
+            hideUI();
+          }
+        }, 3000);
+      }
+    }
+    
+    function hideUI() {
+      uiContainer.classList.remove('visible');
+    }
+    
+    function toggleUILock() {
+      uiLocked = !uiLocked;
+      uiLock.textContent = uiLocked ? '🔓' : '🔒';
+      uiLock.classList.toggle('locked', uiLocked);
+      
+      if (uiLocked) {
+        showUI();
+        clearTimeout(uiTimeout);
+      } else {
+        hideUI();
+      }
+    }
+    
+    function zoomIn() {
+      const oldScale = scale;
+      scale = Math.min(scale * 1.2, 4);
+      adjustViewForZoom(oldScale);
+    }
+    
+    function zoomOut() {
+      const oldScale = scale;
+      scale = Math.max(scale / 1.2, 0.5);
+      adjustViewForZoom(oldScale);
+    }
+    
+    function adjustViewForZoom(oldScale) {
+      // 计算中心点位置
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      
+      // 计算中心点在虚拟画布上的位置
+      const virtualCenterX = (centerX / oldScale) + viewOffsetX;
+      const virtualCenterY = (centerY / oldScale) + viewOffsetY;
+      
+      // 调整偏移量使中心点保持不变
+      viewOffsetX = virtualCenterX - (centerX / scale);
+      viewOffsetY = virtualCenterY - (centerY / scale);
+    }
+    
+    function resetView() {
+      scale = 1;
+      viewOffsetX = virtualWidth / 4;
+      viewOffsetY = virtualHeight / 4;
+    }
+    
+    function zoomToPoint(x, y) {
+      const targetScale = Math.min(scale * 1.5, 4);
+      const targetX = x - (canvas.width / 2) / targetScale;
+      const targetY = y - (canvas.height / 2) / targetScale;
+      
+      viewOffsetX = targetX;
+      viewOffsetY = targetY;
+      scale = targetScale;
+    }
+    
+    // ================= 斐波那契螺旋布局 =================
+    function arrangeInSpiral() {
+      if (fragments.length === 0) return;
+      
+      // 按日期排序（从早到晚）
+      const sortedFragments = [...fragments].sort((a, b) => 
+        new Date(a.date) - new Date(b.date)
+      );
+      
+      // 斐波那契螺旋参数
+      const goldenAngle = Math.PI * (3 - Math.sqrt(5)); // 黄金角度
+      const scaleFactor = 20; // 控制螺旋大小
+      
+      sortedFragments.forEach((fragment, index) => {
+        // 斐波那契螺旋公式
+        const radius = scaleFactor * Math.sqrt(index);
+        const angle = index * goldenAngle;
+        
+        // 计算目标位置
+        fragment.tx = centerX + radius * Math.cos(angle);
+        fragment.ty = centerY + radius * Math.sin(angle);
+        
+        // 重置到达状态，让岛屿开始移动
+        fragment.arrived = false;
+      });
+      
+      // 提示用户
+      alert("已应用斐波那契螺旋布局！岛屿将根据日期顺序排列，最早的岛屿在中心。");
+    }
+    
+    // ================= 小结功能 =================
+    function generateSummary() {
+      const date = document.getElementById('datePicker').value;
+      const dateFragments = fragments.filter(f => f.date === date);
+      
+      if (dateFragments.length === 0) {
+        alert(`没有找到 ${date} 的数据`);
+        return;
+      }
+      
+      // 计算各类别总时长
+      const categories = ["娱乐", "学习", "工作", "信息", "其他"];
+      const categoryTimes = {};
+      let totalTime = 0;
+      
+      categories.forEach(cat => {
+        const time = dateFragments
+          .filter(f => f.category === cat)
+          .reduce((sum, f) => sum + f.duration, 0);
+        
+        categoryTimes[cat] = time;
+        totalTime += time;
+      });
+      
+      // 生成评语
+      const comment = generateComment(categoryTimes, totalTime);
+      
+      // 更新小结面板内容
+      summaryTitle.textContent = `📅 ${date} 注意力小结`;
+      summaryContent.innerHTML = `
+        <div class="summary-section">
+          <h3>📊 注意力分布</h3>
+          <div class="chart-container" id="categoryChart"></div>
+          <div class="summary-stats">
+            <div class="stat-card">
+              <div class="value">${dateFragments.length}</div>
+              <div class="label">总岛屿数</div>
+            </div>
+            <div class="stat-card">
+              <div class="value">${totalTime.toFixed(1)}</div>
+              <div class="label">总时间(小时)</div>
+            </div>
+            <div class="stat-card">
+              <div class="value">${Math.max(...Object.values(categoryTimes)).toFixed(1)}</div>
+              <div class="label">最大类别(小时)</div>
+            </div>
+            <div class="stat-card">
+              <div class="value">${(totalTime / dateFragments.length).toFixed(1)}</div>
+              <div class="label">平均时长(小时)</div>
+            </div>
+          </div>
+        </div>
+        <div class="summary-section">
+          <h3>💬 每日小结</h3>
+          <div id="summaryComment">${comment}</div>
+        </div>
+      `;
+      
+      // 绘制柱状图
+      drawBarChart(categoryTimes, totalTime);
+      
+      // 显示小结面板
+      summaryPanel.style.display = 'block';
+    }
+    
+    function drawBarChart(categoryTimes, totalTime) {
+      const chartContainer = document.getElementById('categoryChart');
+      const maxValue = Math.max(...Object.values(categoryTimes));
+      
+      // 创建柱状图
+      Object.entries(categoryTimes).forEach(([category, time]) => {
+        if (time === 0) return;
+        
+        const barHeight = (time / maxValue) * 150;
+        const bar = document.createElement('div');
+        bar.className = 'chart-bar';
+        bar.style.height = `${barHeight}px`;
+        
+        const label = document.createElement('div');
+        label.className = 'chart-label';
+        label.textContent = category;
+        
+        const value = document.createElement('div');
+        value.className = 'chart-value';
+        value.textContent = time.toFixed(1);
+        
+        bar.appendChild(value);
+        bar.appendChild(label);
+        chartContainer.appendChild(bar);
+      });
+    }
+    
+    function generateComment(categoryTimes, totalTime) {
+      const {娱乐, 学习, 工作} = categoryTimes;
+      const leisureRatio = 娱乐 / totalTime;
+      const studyRatio = 学习 / totalTime;
+      const workRatio = 工作 / totalTime;
+      
+      // 找到耗时最多的类别
+      let maxCategory = "其他";
+      let maxTime = 0;
+      
+      Object.entries(categoryTimes).forEach(([category, time]) => {
+        if (time > maxTime) {
+          maxTime = time;
+          maxCategory = category;
+        }
+      });
+      
+      // 根据主要类别生成评语
+      let comment = "";
+      
+      switch(maxCategory) {
+        case "娱乐":
+          comment = `今天主要是娱乐时间（${娱乐.toFixed(1)}小时），`;
+          if (leisureRatio > 0.6) {
+            comment += "享受了轻松愉快的一天！";
+          } else if (leisureRatio > 0.4) {
+            comment += "劳逸结合得不错！";
+          } else {
+            comment += "适当的娱乐有助于放松身心！";
+          }
+          break;
+          
+        case "学习":
+          comment = `今天主要是学习时间（${学习.toFixed(1)}小时），`;
+          if (studyRatio > 0.6) {
+            comment += "真是专注学习的一天，知识就是力量！";
+          } else if (studyRatio > 0.4) {
+            comment += "学习使你进步，继续保持！";
+          } else {
+            comment += "学到了新知识，继续加油！";
+          }
+          break;
+          
+        case "工作":
+          comment = `今天主要是工作时间（${工作.toFixed(1)}小时），`;
+          if (workRatio > 0.6) {
+            comment += "高效工作的一天，成就感满满！";
+          } else if (workRatio > 0.4) {
+            comment += "工作辛苦了，休息也很重要！";
+          } else {
+            comment += "完成了工作任务，效率不错！";
+          }
+          break;
+          
+        case "信息":
+          comment = `今天主要是信息获取时间（${categoryTimes.信息.toFixed(1)}小时），`;
+          comment += "获取新知识是成长的重要部分！";
+          break;
+          
+        default:
+          comment = "今天的时间分布均衡，";
+          if (totalTime > 10) {
+            comment += "度过了充实而漫长的一天！";
+          } else if (totalTime < 4) {
+            comment += "轻松的一天，给自己充充电也不错~";
+          } else {
+            comment += "生活丰富多彩！";
+          }
+      }
+      
+      // 添加特殊情况的评语
+      if (娱乐 > 6 && workRatio < 0.2 && studyRatio < 0.2) {
+        comment += " 娱乐放松后，明天再继续努力吧！";
+      }
+      
+      if (工作 > 8) {
+        comment += " 记得适当休息，劳逸结合很重要！";
+      }
+      
+      if (学习 > 6) {
+        comment += " 大脑需要休息，适当放松效果更好！";
+      }
+      
+      return comment;
+    }
+    
+    // ================= 3D功能 =================
+    function init3dScene() {
+      // 创建场景
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0a1a2f);
+      
+      // 添加环境光
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+      
+      // 添加方向光
+      const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight1.position.set(1, 1, 1);
+      scene.add(directionalLight1);
+      
+      const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight2.position.set(-1, -1, -1);
+      scene.add(directionalLight2);
+      
+      // 创建相机
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
+      camera.position.z = 30;
+      camera.position.y = 15;
+      camera.position.x = 15;
+      camera.lookAt(0,0,0);
+      
+      // 创建渲染器
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor(0x0a1a2f);
+      threeCanvas.innerHTML = ''; // 清除旧内容
+      threeCanvas.appendChild(renderer.domElement);
+      
+      // 添加轨道控制器
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.screenSpacePanning = false;
+      controls.minDistance = 5;
+      controls.maxDistance = 100;
+      
+      // 创建岛屿网格
+      createIslandMeshes();
+      
+      // 添加星空背景
+      createStarfield();
+      
+      // 开始渲染
+      animate3d();
+    }
+    
+    function createIslandMeshes() {
+      // 清除现有网格
+      islandMeshes.forEach(mesh => scene.remove(mesh));
+      islandMeshes = [];
+      
+      // 获取当前分类的岛屿
+      const filteredFragments = fragments.filter(f => 
+        activeCategory === "all" || f.category === activeCategory
+      );
+      
+      // 如果没有岛屿，则添加提示
+      if (filteredFragments.length === 0) {
+        console.log("没有符合条件的岛屿");
+        return;
+      }
+      
+      // 创建新网格
+      filteredFragments.forEach(fragment => {
+        const mesh = fragment.create3dMesh();
+        scene.add(mesh);
+        islandMeshes.push(mesh);
+      });
+    }
+    
+    function createStarfield() {
+      const starGeometry = new THREE.BufferGeometry();
+      const starMaterial = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.1,
+        transparent: true,
+        sizeAttenuation: false
+      });
+      
+      const starVertices = [];
+      for (let i = 0; i < 10000; i++) {
+        const x = (Math.random() - 0.5) * 2000;
+        const y = (Math.random() - 0.5) * 2000;
+        const z = (Math.random() - 0.5) * 2000;
+        starVertices.push(x, y, z);
+      }
+      
+      starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+      const stars = new THREE.Points(starGeometry, starMaterial);
+      scene.add(stars);
+    }
+    
+    function animate3d() {
+      if (!is3dMode) return;
+      
+      requestAnimationFrame(animate3d);
+      
+      // 更新岛屿位置和动画
+      islandMeshes.forEach(mesh => {
+        // 添加浮动效果
+        const time = Date.now() * 0.001;
+        mesh.position.y += Math.sin(time * 0.5 + mesh.userData.fragment.floatOffset) * 0.02;
+        mesh.rotation.y += 0.001;
+      });
+      
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    
+    function enter3dMode() {
+      is3dMode = true;
+      
+      // 隐藏2D元素
+      canvas.style.display = 'none';
+      document.querySelector('.instructions').style.display = 'none';
+      document.querySelector('.legend').style.display = 'none';
+      uiContainer.style.display = 'none';
+      view3dBtn.style.display = 'none';
+      detailBox.style.display = 'none';
+      spiralBtn.style.display = 'none';
+      
+      // 显示3D元素
+      threeCanvas.style.display = 'block';
+      backTo2dBtn.style.display = 'block';
+      document.querySelector('.three-info').style.display = 'block';
+      current3dCategory.textContent = activeCategory;
+      
+      // 初始化3D场景
+      if (!scene) {
+        init3dScene();
+      } else {
+        init3dScene(); // 重新初始化场景避免卡死
+      }
+    }
+    
+    function exit3dMode() {
+      is3dMode = false;
+      
+      // 显示2D元素
+      canvas.style.display = 'block';
+      document.querySelector('.instructions').style.display = 'block';
+      document.querySelector('.legend').style.display = 'block';
+      uiContainer.style.display = 'block';
+      view3dBtn.style.display = 'block';
+      spiralBtn.style.display = 'block';
+      
+      // 隐藏3D元素
+      threeCanvas.style.display = 'none';
+      backTo2dBtn.style.display = 'none';
+      document.querySelector('.three-info').style.display = 'none';
+      
+      // 恢复2D动画
+      animate();
+    }
+
+    // 事件监听器
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      
+      // 转换到虚拟画布坐标
+      const vx = mx / scale + viewOffsetX;
+      const vy = my / scale + viewOffsetY;
+      
+      hoveredFragment = fragments.find(f => f.isPointInside(mx, my, viewOffsetX, viewOffsetY, scale)) || null;
+      canvas.style.cursor = hoveredFragment ? 'pointer' : isDragging ? 'grabbing' : 'grab';
+      
+      if (isDragging) {
+        const dx = (lastX - mx) / scale;
+        const dy = (lastY - my) / scale;
+        viewOffsetX += dx;
+        viewOffsetY += dy;
+        lastX = mx;
+        lastY = my;
+      }
+    });
+
+    canvas.addEventListener('mousedown', e => {
+      if (e.button === 0) { // 左键
+        isDragging = true;
+        const rect = canvas.getBoundingClientRect();
+        lastX = e.clientX - rect.left;
+        lastY = e.clientY - rect.top;
+        canvas.style.cursor = 'grabbing';
+      }
+    });
+    
+    canvas.addEventListener('mouseup', () => {
+      isDragging = false;
+      canvas.style.cursor = 'grab';
+    });
+    
+    canvas.addEventListener('mouseleave', () => {
+      isDragging = false;
+      canvas.style.cursor = 'grab';
+    });
+    
+    canvas.addEventListener('dblclick', e => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      
+      const clickedFragment = fragments.find(f => f.isPointInside(mx, my, viewOffsetX, viewOffsetY, scale));
+      
+      if (clickedFragment) {
+        // 双击岛屿时放大该岛屿
+        const vx = clickedFragment.x;
+        const vy = clickedFragment.y;
+        zoomToPoint(vx, vy);
+      } else {
+        // 双击空白区域时放大该区域
+        const vx = mx / scale + viewOffsetX;
+        const vy = my / scale + viewOffsetY;
+        zoomToPoint(vx, vy);
+      }
+    });
+
+    canvas.addEventListener('click', e => {
+      if (isDragging) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      
+      const clicked = fragments.find(f => f.isPointInside(mx, my, viewOffsetX, viewOffsetY, scale));
+      
+      if (clicked) {
+        selectedFragment = clicked;
+        clicked.showDetails();
+        deleteBtn.classList.add('highlight');
+      } else {
+        selectedFragment = null;
+        detailBox.style.display = 'none';
+        deleteBtn.classList.remove('highlight');
+      }
+    });
+    
+    // UI显示/隐藏逻辑
+    topTrigger.addEventListener('mouseenter', () => {
+      showUI();
+    });
+    
+    uiContainer.addEventListener('mouseleave', () => {
+      if (!uiLocked) {
+        hideUI();
+      }
+    });
+    
+    uiLock.addEventListener('click', toggleUILock);
+    
+    zoomInBtn.addEventListener('click', zoomIn);
+    zoomOutBtn.addEventListener('click', zoomOut);
+    resetViewBtn.addEventListener('click', resetView);
+    
+    // 分类筛选
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.category-btn').forEach(b => 
+          b.classList.remove('active')
+        );
+        btn.classList.add('active');
+        activeCategory = btn.dataset.category;
+        
+        // 如果在3D模式中，重新加载3D场景
+        if (is3dMode) {
+          enter3dMode();
+        }
+      });
+    });
+    
+    // 3D模式切换
+    view3dBtn.addEventListener('click', enter3dMode);
+    backTo2dBtn.addEventListener('click', exit3dMode);
+    
+    // 小结面板关闭
+    closeSummary.addEventListener('click', () => {
+      summaryPanel.style.display = 'none';
+    });
+    
+    // 螺旋布局按钮
+    spiralBtn.addEventListener('click', arrangeInSpiral);
+
+    // 初始化
+    document.getElementById('datePicker').value = getTodayDate();
+
+    // 添加示例输入
+    document.getElementById('inputText').value = 
+      "刷抖音两个半小时\n" +
+      "写代码3小时45分钟\n" +
+      "听讲座一小时二十分\n" +
+      "做志愿活动1.5小时\n" +
+      "玩游戏两个小时\n" +
+      "答辩准备三小时";
+
+    // 启动动画
+    animate();
+    loadFragments();
+    
+    // 响应窗口大小变化
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      if (camera && renderer) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+    });
+  </script>
 </body>
 </html>
